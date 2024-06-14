@@ -1,0 +1,21 @@
+<body>
+  <div class="container">
+    <button class="top-right" (click)="fetchWeather()">Fetch Weather</button>
+    <h2>Manage Cities</h2>
+    <input [(ngModel)]="newCityName" placeholder="Enter city name" />
+    <button (click)="addCity()">Add City</button><br>
+    <input [(ngModel)]="interval" placeholder="Enter time interval in minutes" />
+    <button (click)="changeInterval()">Change Interval</button>
+    <ul>
+      <li *ngFor="let city of cities">
+        {{ city.name }}
+        <span class="remove-symbol" (click)="deleteCity(city._id)">×</span>
+      </li>
+    </ul>
+    
+  </div>
+  <div>
+    <app-city-chart></app-city-chart>
+</div>
+</body>
+
